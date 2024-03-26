@@ -7,3 +7,4 @@ config.txt
 user_config.json
 generate_requirements.py
 venv
+output.html
