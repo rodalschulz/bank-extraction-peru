@@ -1,0 +1,9 @@
+__pycache__/
+.vscode/
+*.pyc
+*.pyo
+*.pyc
+config.txt
+user_config.json
+generate_requirements.py
+venv
