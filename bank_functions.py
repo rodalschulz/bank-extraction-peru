@@ -495,32 +495,37 @@ def bbv_extract():
         
         normal_accounts = driver.find_elements(By.CLASS_NAME, "link")[x]
         normal_accounts.click()
-        WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "sortable")))
-        
-        # Populate a list with all transactions
-        table = driver.find_element(By.CLASS_NAME, "sortable")
-        all_rows = table.find_elements(By.TAG_NAME, "tr")
-        for row in all_rows:
-            row_data = row.find_elements(By.TAG_NAME, "td")
-            row_list = [data.text for data in row_data]
-            data_table_1.append(row_list)
+        try:
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "sortable")))
             
-        cuentas = driver.find_element(By.LINK_TEXT, "Cuentas")
-        cuentas.click()
-        WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "content-column")))
+            # Populate a list with all transactions
+            table = driver.find_element(By.CLASS_NAME, "sortable")
+            all_rows = table.find_elements(By.TAG_NAME, "tr")
+            for row in all_rows:
+                row_data = row.find_elements(By.TAG_NAME, "td")
+                row_list = [data.text for data in row_data]
+                data_table_1.append(row_list)
+                
+            cuentas = driver.find_element(By.LINK_TEXT, "Cuentas")
+            cuentas.click()
+            WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "content-column")))
 
-        data_table_1 = [sublist for sublist in 
-                                data_table_1 if len(sublist) > 1]
-        data_table_1 = [[currency] + 
-                sublist for sublist in data_table_1]
-        data_table_1 = [[acc_4_digits] + 
+            data_table_1 = [sublist for sublist in 
+                                    data_table_1 if len(sublist) > 1]
+            data_table_1 = [[currency] + 
                     sublist for sublist in data_table_1]
-        variable_dict_name = f'Cuenta_{curr_name}_{x}'
-        # Assign to a variable with a unique name
-        normal_tables_dict[variable_dict_name] = data_table_1
-
+            data_table_1 = [[acc_4_digits] + 
+                        sublist for sublist in data_table_1]
+            variable_dict_name = f'Cuenta_{curr_name}_{x}'
+            # Assign to a variable with a unique name
+            normal_tables_dict[variable_dict_name] = data_table_1
+        except:
+            cuentas = driver.find_element(By.LINK_TEXT, "Cuentas")
+            cuentas.click()
+            WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "content-column")))
 
     tarjetas = driver.find_element(By.LINK_TEXT, "Tarjetas")
     tarjetas.click()
