@@ -2,7 +2,6 @@ import pandas as pd
 
 from core_functions import load_config
 
-# EXECUTE FUNCTION TO READ CONFIGURATION FILE
 config_file_path = 'user_config.json'
 config = load_config(config_file_path)
 trx_csv_path = config.get("trx_csv_path")
@@ -14,13 +13,12 @@ skip_rows = config.get("skip_rows")
 def concat_extracted(df_list):
     global allbanks_extracted_df
     print("Printing...")
-    #print(len(df_list))
-    allbanks_extracted_df = pd.concat(df_list, ignore_index=True)  # Set ignore_index=True to reindex the resulting DataFrame
+    allbanks_extracted_df = pd.concat(df_list, ignore_index=True)
     return allbanks_extracted_df
 
-def load_trx_csv(): # READ AND LOAD THE SAVED VERSION OF THE TRANSACTIONS
+def load_trx_csv():
     global all_trx_df
-    all_trx_df = pd.read_csv(trx_csv_path) # Use the read_csv function to read the CSV file into a DataFrame
+    all_trx_df = pd.read_csv(trx_csv_path)
     return all_trx_df
 
 def extracted_to_trx_csv(): # PREPARE THE TRANSACTIONS CSV ADDING THE NEWLY EXTRACTED DATA (UPDATE IT)

@@ -115,7 +115,6 @@ def visualize_df_chrome(df):
 
     webbrowser.open(html_file_path, new=2)  # 'new=2' opens the file in a new tab/window
     
-# Function to update the state of the checkbox based on the global variable ibk_df
 def update_ibk_checkbox_state():
     ibk_checkbox_state = tk.BooleanVar()
     if 'ibk_df' in globals() and not ibk_df.empty:
@@ -123,7 +122,6 @@ def update_ibk_checkbox_state():
     else:
         ibk_checkbox_state.set(False)
 
-# Function to update the state of the checkbox based on the global variable din_df
 def update_din_checkbox_state():
     din_checkbox_state = tk.BooleanVar()
     if 'din_df' in globals() and not din_df.empty:
@@ -131,7 +129,6 @@ def update_din_checkbox_state():
     else:
         din_checkbox_state.set(False)
 
-# Function to update the state of the checkbox based on the global variable bbv_df
 def update_bbv_checkbox_state():
     bbv_checkbox_state = tk.BooleanVar()
     if 'bbv_df' in globals() and not bbv_df.empty:
@@ -139,7 +136,6 @@ def update_bbv_checkbox_state():
     else:
         bbv_checkbox_state.set(False)
 
-# Function to update the state of the checkbox based on the global variable bbv_df
 def update_bcp_checkbox_state():
     bcp_checkbox_state = tk.BooleanVar()
     if 'bcp_df' in globals() and not bcp_df.empty:
@@ -147,7 +143,6 @@ def update_bcp_checkbox_state():
     else:
         bcp_checkbox_state.set(False)
 
-# Function to update the state of the checkbox based on the global variable bbv_df
 def update_sbk_checkbox_state():
     sbk_checkbox_state = tk.BooleanVar()
     if 'sbk_df' in globals() and not sbk_df.empty:

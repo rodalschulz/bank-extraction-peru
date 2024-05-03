@@ -21,7 +21,7 @@ din_user = config.get("din_user")
 bcp_card = config.get("bcp_card")
 
 def ibk_extract():
-    global ibk_df, extracted_banks
+    global extracted_banks
     
     # Chrome window initialization
     driver = webdriver.Chrome() # Initialize the Chrome WebDriver
@@ -40,7 +40,7 @@ def ibk_extract():
     pass_box.click()
 
     # Use a while loop to keep checking until login is complete
-    home_button_elm = "Inicio" # Define home button
+    home_button_elm = "Inicio"
     while not is_element_clickable(driver, By.LINK_TEXT, home_button_elm): 
         print("Waiting for login...")
         play_sound("attention_bell.wav") # play sound, login required
@@ -267,7 +267,7 @@ def ibk_extract():
     
     
 def din_extract():
-    global din_df, extracted_banks
+    global extracted_banks
 
     # Chrome window initialization
     chr_options = Options()
@@ -416,7 +416,7 @@ def din_extract():
 
 
 def bbv_extract():
-    global bbv_df, extracted_banks
+    global extracted_banks
 
     options = uc.ChromeOptions() 
     options.headless = False  # Set headless to False to run in non-headless mode
@@ -654,7 +654,7 @@ def bbv_extract():
 
 
 def bcp_extract():
-    global bcp_df, extracted_banks
+    global extracted_banks
 
     # Chrome window initialization
     driver = webdriver.Chrome() # Initialize the Chrome WebDriver
@@ -824,7 +824,7 @@ def bcp_extract():
 
 
 def sbk_extract():
-    global sbk_df, extracted_banks
+    global extracted_banks
     
     options = uc.ChromeOptions()
     options.headless = False  # Set headless to False to run in non-headless mode
