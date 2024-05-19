@@ -36,8 +36,8 @@ def ibk_extract():
     card_num_box.send_keys(ibk_card)
     dni_box = driver.find_element(By.ID, "39")
     dni_box.send_keys(dni)
-    pass_box = driver.find_element(By.ID, "46")
-    pass_box.click()
+    # pass_box = driver.find_element(By.ID, "46")
+    # pass_box.click()
 
     # Use a while loop to keep checking until login is complete
     home_button_elm = "Inicio"

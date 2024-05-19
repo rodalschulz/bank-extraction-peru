@@ -9,7 +9,7 @@ from data_manipulation_functions import *
 from utils.additional_functions import *
 
 def open_test_gui():
-    test_root = test_json_gui.create_test_gui()
+    test_root = user_config_gui.create_test_gui()
     test_root.mainloop()
 
 def main():
